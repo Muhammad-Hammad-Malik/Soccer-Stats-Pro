@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketplace</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Football Player Marketplace</h1>
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title mb-0">Available Players</h3>
+        </div>
+        <div class="card-body">
+          <!-- Search Bar -->
+          <form method="get" action="" class="mb-4">
+            <div class="input-group">
+              <input
+                type="text"
+                name="search"
+                value="{{ query|default:'' }}"
+                class="form-control"
+                placeholder="Search players by name..."
+              />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+
+          {% if players %}
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Player Name</th>
+                  <th>Position</th>
+                  <th>Club</th>
+                  <th>Goals</th>
+                  <th>Assists</th>
+                  <th>Yellow Cards</th>
+                  <th>Red Cards</th>
+                  <th>Matches Played</th>
+                  <th>Minutes Played</th>
+                  <th>Clean Sheets</th>
+                  <th>Shots on Target</th>
+                  <th>Passes Completed</th>
+                  <th>Tackles</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for player in players %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ player.name }}</td>
+                  <td>{{ player.position }}</td>
+                  <td>{{ player.club.club_name }}</td>
+                  <td>{{ player.goals }}</td>
+                  <td>{{ player.assists }}</td>
+                  <td>{{ player.yellow_cards }}</td>
+                  <td>{{ player.red_cards }}</td>
+                  <td>{{ player.matches_played }}</td>
+                  <td>{{ player.minutes_played }}</td>
+                  <td>{{ player.clean_sheets }}</td>
+                  <td>{{ player.shots_on_target }}</td>
+                  <td>{{ player.passes_completed }}</td>
+                  <td>{{ player.tackles }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+          <p class="text-center text-muted">
+            No players found matching your search.
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

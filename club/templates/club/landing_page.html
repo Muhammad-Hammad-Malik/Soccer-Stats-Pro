@@ -1,0 +1,98 @@
+{% extends "club/l_base.html" %} {% block content %}
+<!-- Hero Section -->
+<div class="container-fluid bg-light text-dark py-5" id="home">
+  <div class="text-center">
+    <h1 class="display-4">Welcome to SoccerStats Pro</h1>
+    <p class="lead">
+      Manage your club, players, and finances all in one place.
+    </p>
+    <div class="mt-4">
+      <a href="{% url 'sign_up' %}" class="btn btn-primary btn-lg">Sign Up</a>
+      <a href="{% url 'admin_login' %}" class="btn btn-outline-secondary btn-lg"
+        >Admin Sign In</a
+      >
+      <a href="{% url 'analyst_login' %}" class="btn btn-warning btn-lg"
+        >Analyst Sign In</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5" id="features">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <i class="bi bi-person-fill display-3 text-primary"></i>
+      <h3 class="mt-3">Manage Players</h3>
+      <p>Add, edit, and keep track of your team's players effortlessly.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-wallet2 display-3 text-success"></i>
+      <h3 class="mt-3">Track Finances</h3>
+      <p>Monitor your club's income and expenses to ensure financial health.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-bar-chart-line-fill display-3 text-danger"></i>
+      <h3 class="mt-3">Analytics</h3>
+      <p>Gain valuable insights into your club's performance and growth.</p>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="container-fluid bg-primary text-white py-5" id="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2>About Us</h2>
+        <p>
+          Football Club Management is your all-in-one platform to manage your
+          team's operations, track finances, and analyze performance. Designed
+          to make club management easier and more efficient.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="https://learning.coachesvoice.com/wp-content/webpc-passthru.php?src=https://learning.coachesvoice.com/wp-content/uploads/2024/06/4-1-4-1-tactics-board-1024x800.jpg&nocache=1"
+          alt="Football Club"
+          class="img-fluid rounded"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonial Section -->
+<div class="container text-center py-5" id="test">
+  <h2 class="mb-4">What Our Users Say</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <p class="lead">
+          "This platform transformed the way we manage our club. It's
+          user-friendly and powerful!"
+        </p>
+        <footer class="blockquote-footer">John Doe, Club Manager</footer>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <p class="lead">
+          "A great tool for tracking stats and improving club performance.
+          Highly recommend!"
+        </p>
+        <footer class="blockquote-footer">Jane Smith, Coach</footer>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm p-4">
+        <p class="lead">
+          "Incredible experience! Everything we need in one place. It's a game
+          changer."
+        </p>
+        <footer class="blockquote-footer">Alice Brown, Team Captain</footer>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

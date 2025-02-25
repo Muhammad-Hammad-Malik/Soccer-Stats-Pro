@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Manage Stats</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Football Club</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      {% if club %}
+      <div class="text-center mb-5">
+        <h1>Manage Stats for {{ club.club_name }}</h1>
+        <p class="lead">Update the stats of players in your club</p>
+      </div>
+      {% else %}
+      <div class="alert alert-warning text-center">
+        <p>Club not found. Please log in.</p>
+      </div>
+      {% endif %}
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Player Name</th>
+              <th>Position</th>
+              <th>Goals</th>
+              <th>Assists</th>
+              <th>Yellow Cards</th>
+              <th>Red Cards</th>
+              <th>Matches Played</th>
+              <th>Minutes Played</th>
+              <th>Clean Sheets</th>
+              <th>Shots on Target</th>
+              <th>Passes Completed</th>
+              <th>Tackles</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for player in players %}
+            <tr>
+              <td>{{ player.name }}</td>
+              <td>{{ player.position }}</td>
+              <td>{{ player.goals }}</td>
+              <td>{{ player.assists }}</td>
+              <td>{{ player.yellow_cards }}</td>
+              <td>{{ player.red_cards }}</td>
+              <td>{{ player.matches_played }}</td>
+              <td>{{ player.minutes_played }}</td>
+              <td>{{ player.clean_sheets }}</td>
+              <td>{{ player.shots_on_target }}</td>
+              <td>{{ player.passes_completed }}</td>
+              <td>{{ player.tackles }}</td>
+              <td>
+                <a
+                  href="{% url 'update_stats' player.id %}"
+                  class="btn btn-warning btn-sm"
+                  >Update</a
+                >
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="13" class="text-center">No players found</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Player</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+          <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+              <h3>Create New Player</h3>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="id_name" class="form-label">Player Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="id_name"
+                    class="form-control"
+                    placeholder="Enter player name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="id_position" class="form-label">Position</label>
+                  <select
+                    name="position"
+                    id="id_position"
+                    class="form-select"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Select player position
+                    </option>
+                    <option value="att">Attacker</option>
+                    <option value="def">Defender</option>
+                    <option value="mid">Midfielder</option>
+                    <option value="gk">Goalkeeper</option>
+                  </select>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="id_goals" class="form-label">Goals</label>
+                    <input
+                      type="number"
+                      name="goals"
+                      id="id_goals"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="id_assists" class="form-label">Assists</label>
+                    <input
+                      type="number"
+                      name="assists"
+                      id="id_assists"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="id_yellow_cards" class="form-label"
+                      >Yellow Cards</label
+                    >
+                    <input
+                      type="number"
+                      name="yellow_cards"
+                      id="id_yellow_cards"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="id_red_cards" class="form-label"
+                      >Red Cards</label
+                    >
+                    <input
+                      type="number"
+                      name="red_cards"
+                      id="id_red_cards"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="id_matches_played" class="form-label"
+                      >Matches Played</label
+                    >
+                    <input
+                      type="number"
+                      name="matches_played"
+                      id="id_matches_played"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="id_minutes_played" class="form-label"
+                      >Minutes Played</label
+                    >
+                    <input
+                      type="number"
+                      name="minutes_played"
+                      id="id_minutes_played"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="id_clean_sheets" class="form-label"
+                      >Clean Sheets</label
+                    >
+                    <input
+                      type="number"
+                      name="clean_sheets"
+                      id="id_clean_sheets"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="id_shots_on_target" class="form-label"
+                      >Shots on Target</label
+                    >
+                    <input
+                      type="number"
+                      name="shots_on_target"
+                      id="id_shots_on_target"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="id_passes_completed" class="form-label"
+                      >Passes Completed</label
+                    >
+                    <input
+                      type="number"
+                      name="passes_completed"
+                      id="id_passes_completed"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="id_tackles" class="form-label">Tackles</label>
+                    <input
+                      type="number"
+                      name="tackles"
+                      id="id_tackles"
+                      class="form-control"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success w-100">
+                    Add Player
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

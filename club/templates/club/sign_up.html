@@ -1,0 +1,75 @@
+{% extends 'club/l_base.html' %} {% block content %}
+<div class="container">
+  <h2 class="text-center my-4">Club Sign Up</h2>
+  <form method="POST" action="{% url 'sign_up' %}" class="row g-3">
+    {% csrf_token %}
+
+    <!-- Club Name -->
+    <div class="col-md-6">
+      <label for="club_name" class="form-label">Club Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="club_name"
+        name="club_name"
+        required
+      />
+    </div>
+
+    <!-- Club Location -->
+    <div class="col-md-6">
+      <label for="club_location" class="form-label">Club Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="club_location"
+        name="club_location"
+        required
+      />
+    </div>
+
+    <!-- Established Year -->
+    <div class="col-md-6">
+      <label for="established_year" class="form-label">Year Established</label>
+      <input
+        type="number"
+        class="form-control"
+        id="established_year"
+        name="established_year"
+        required
+      />
+    </div>
+
+    <!-- Admin Password -->
+    <div class="col-md-6">
+      <label for="admin_password" class="form-label">Admin Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="admin_password"
+        name="admin_password"
+        required
+      />
+    </div>
+
+    <!-- Analyst Password -->
+    <div class="col-md-6">
+      <label for="analyst_password" class="form-label">Analyst Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="analyst_password"
+        name="analyst_password"
+        required
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary btn-lg w-100">
+        Sign Up
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

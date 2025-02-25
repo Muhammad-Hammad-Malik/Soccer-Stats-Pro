@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Staff</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Manage Your Club's Staff</h1>
+
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title mb-0">Staff Members</h3>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="head_coach" class="form-label">Head Coach</label>
+              {{ form.head_coach }}
+            </div>
+            <div class="mb-3">
+              <label for="assistant_coach" class="form-label"
+                >Assistant Coach</label
+              >
+              {{ form.assistant_coach }}
+            </div>
+            <div class="mb-3">
+              <label for="gk_coach" class="form-label">Goalkeeper Coach</label>
+              {{ form.gk_coach }}
+            </div>
+            <div class="mb-3">
+              <label for="physical_coach" class="form-label"
+                >Physical Coach</label
+              >
+              {{ form.physical_coach }}
+            </div>
+            <div class="mb-3">
+              <label for="fitness_coach" class="form-label"
+                >Fitness Coach</label
+              >
+              {{ form.fitness_coach }}
+            </div>
+            <button type="submit" class="btn btn-success">Save Staff</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
